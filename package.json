@@ -1,0 +1,38 @@
+{
+  "name": "pastememo",
+  "version": "1.0.0",
+  "description": "剪贴板历史管理工具 - 记录文字和图片，随时查找和复用",
+  "main": "dist/main/index.js",
+  "author": "PasteMemo",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently -n main,renderer \"npm run dev:main\" \"npm run dev:renderer\"",
+    "dev:main": "tsc -p tsconfig.main.json && node scripts/run-electron.js",
+    "dev:renderer": "vite",
+    "build:main": "tsc -p tsconfig.main.json",
+    "build:renderer": "vite build",
+    "build": "npm run build:renderer && npm run build:main",
+    "start": "node scripts/run-electron.js",
+    "pack": "npm run build && electron-builder --win portable"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sql.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.28",
+    "@types/react-dom": "^18.3.7",
+    "@types/sql.js": "^1.4.11",
+    "@vitejs/plugin-react": "^4.7.0",
+    "autoprefixer": "^10.5.0",
+    "concurrently": "^9.2.1",
+    "electron": "^31.7.7",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^3.4.19",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "wait-on": "^9.0.10"
+  }
+}
